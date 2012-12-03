@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=IM+Fell+English:400,400italic' rel='stylesheet' type='text/css'>
+
+    <title>Ye Olde Linke Shortener</title>
+
+	<!-- Add jQuery Library -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+	<!-- ZClip "copy to clipboard" Javascript - http://www.steamdev.com/zclip/ -->
+	<script type="text/javascript" src="http://people.ischool.berkeley.edu/~ryanfbaker/server/static/js/jquery.zclip.js"></script>	
+	
+	<!-- Shortener Javascript -->
+	<script type="text/javascript" src="http://people.ischool.berkeley.edu/~ryanfbaker/server/static/js/jquery.shorten.js"></script>	
+
+	<!-- Site-wide style sheet -->
+	<link rel="stylesheet" type="text/css" href="http://people.ischool.berkeley.edu/~ryanfbaker/server/static/css/main.css" />
+	
+</head>
+<body>
+<div id="wrapper">
+
+	<div id="shortener-form">
+		<form id="shortener" action="http://people.ischool.berkeley.edu/~ryanfbaker/server/create" method="post">
+			<table style="width:100%;">
+			<tr>
+				<td style="padding:8px;">
+				<span class="header">Ye Olde Linke Shortener.</span><br><br>
+				<label for="url">Enter thine URL of great lengthe.</label><br>
+				<input type="text" id="url" name="url" size="30" value="">
+				<br><br>
+				<label for="short">Enter thine short-cut.</label><br>
+				
+				<input type="radio" name="whichshort" id="manual" value="manual" checked="checked">
+				<input type="text" id="short" name="short" size="8" value="">
+				&nbsp;&nbsp;				
+				<input type="radio" name="whichshort" id="automatic" value="automatic">
+				<label for="automatic" style="vertical-align:-18%;opacity:0.33;">Create random.</label>
+				<br>
+				<div id="warning" style="opacity:0;">Prithee, enter nary but lettyrs in thine short-cut.</div> 
+				<input type="submit" id="submit" name="submit" value="Create linke thusly." disabled>		
+				</td>
+			</tr>			
+			</table>
+		</form>				
+
+		{% if success == 'true' %}
+			<div class="divider"><img src="http://people.ischool.berkeley.edu/~ryanfbaker/server/static/images/divider_smn.png" alt="section divider" style="margin:0 auto;"></div>
+
+			<span class="header">
+			Beholde thine linke.
+			</span>
+			{% if existed == 'true' %}
+			<br>
+			(We hath come upon thine URL all-ready in our list.)
+			{% endif %}
+			<div class="results-box">
+				<div id="newurl-box">		
+				<a title="http://people.ischool.berkeley.edu/~ryanfbaker/server/{{ short }}" href="http://people.ischool.berkeley.edu/~ryanfbaker/server/{{ short }}" target="new"><span id="newurl">/{{ short }}</span></a>&nbsp;&nbsp;&nbsp;<a id="copy-url" style="font-size:10pt;color:green;">Copy linke to thine clip-boarde.</a><span class="copied"></span>
+				<br><span class="clickcount">Click count: {{ clicks[short] }}</span><span class="link-description">  ||  Redirects to <a class="redirect" href="{{ url }}" target="new">{{ url }}</a></span>
+				</div>
+			</div>
+		{% endif %}
+		{% if numentries > 1 %}
+				<div class="divider"><img src="http://people.ischool.berkeley.edu/~ryanfbaker/server/static/images/divider_sm.png" alt="section divider"  style="margin:0 auto;"></div>
+				<span class="subheader">Thine linkes of olde.</span><br>
+				<div class="results-box">	
+					<ul>		
+					{% for x in db.keys() %}
+					{% if x != short %}
+					<li>
+					<!--<form action="http://people.ischool.berkeley.edu/~ryanfbaker/server/{{ x }}" method="delete">-->
+					<span class="oldurl"><a title="http://people.ischool.berkeley.edu/~ryanfbaker/server/{{ x }}" href="http://people.ischool.berkeley.edu/~ryanfbaker/server/{{ x }}" target="new">/{{ x }}</a>
+					&nbsp;&nbsp;&nbsp;</span>
+					<span class="clickcount">Click count: {{ clicks[x] }}</span><span class="link-description">  ||  Redirects to <a class="redirect" href="{{ db[x] }}" target="new">{{ db[x] }}</a></span>
+					<!--</form>-->
+					</li>
+					{% endif %}
+					{% endfor %}
+					</ul>		
+				</div>					
+		{% endif %}
+		
+	</div>
+
+	
+</div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+body {
+	background: #FFFFFF;
+	/*font-family: Helvetica, Arial, sans-serif;*/
+	font-family: 'IM Fell English', serif;
+	font-size: 10pt;
+	color: black;
+}
+
+.thumb {
+	width:auto;
+	height:auto;
+	max-width:170px;
+	padding: 1px;
+	border: 1px solid #999999;
+	background-color: #FFF;	
+	margin:8px;
+	}
+
+
+p {
+	font-size: 10pt;
+}
+
+table tr td {
+	vertical-align: top;
+	padding: 4px;
+}
+	
+ul li {
+	font-size: 9pt;
+	list-style: none;
+	padding-bottom: 8px;
+	margin-left: -10px;
+	}
+
+label {
+	font-size: 12pt;
+	vertical-align: middle;
+}	
+
+input {
+	font-family: 'IM Fell English', serif;
+	font-size: 14pt;
+	height: 24px;
+	vertical-align: middle;
+	
+}
+
+input[type="submit"] {
+	height: 29px;
+	font-size: 10pt;
+	font-family: 'IM Fell English', serif;
+	vertical-align: middle;	
+}
+
+input::-webkit-input-placeholder {
+    color:    #000;
+}
+input:-moz-placeholder {
+    color:    #000;
+}
+input:-ms-input-placeholder {
+    color:    #000;
+}
+
+	
+#wrapper {
+        margin: 0 auto;
+        width: 1000px;
+}	
+
+#content {
+        width: 100%;
+        padding: 0px;
+        text-align: left;
+        vertical-align: top;
+}
+	
+#content-box {
+		margin: 0 auto;
+		width: 800px;
+		padding: 12px;
+		border: 1px dotted #c0c0c0;
+		-moz-box-shadow: 4px 4px 2px #b0b0b0;
+		-webkit-box-shadow: 4px 4px 2px #b0b0b0;
+		box-shadow: 4px 4px 2px #b0b0b0;
+		}
+#shortener-form {
+		margin: 0 auto;
+		text-align: center;
+		width: 800px;
+		padding: 12px;
+		border: 1px dotted #c0c0c0;
+		-moz-box-shadow: 4px 4px 2px #b0b0b0;
+		-webkit-box-shadow: 4px 4px 2px #b0b0b0;
+		box-shadow: 4px 4px 2px #b0b0b0;
+}		
+		
+.content-box {
+		margin: 0 auto;
+		width: 800px;
+		padding: 12px;
+		border: 1px dotted #c0c0c0;
+		-moz-box-shadow: 4px 4px 2px #b0b0b0;
+		-webkit-box-shadow: 4px 4px 2px #b0b0b0;
+		box-shadow: 4px 4px 2px #b0b0b0;
+		}		
+		
+.link-description {
+	font-size: 10pt;
+	font-style: italic;
+	color: gray;
+	text-indent: 4px;
+	word-wrap: break-word;
+}
+
+
+.clickcount {
+	font-size: 10pt;
+	font-style: italic;
+	color: #9b6c23;
+}
+
+.large {
+	font-size: 24pt;	
+	padding: 4px 0px;
+}
+
+.header {
+	font-size: 20pt;	
+	padding: 4px 0px;
+}
+
+.subheader {
+	font-size: 14pt;	
+}
+
+.description {
+	font-size: 10pt;
+	color: #444444;
+}
+
+.copied {
+	font-size: 10pt;
+	color: #9bba9b;
+	
+	
+}
+
+.divider {
+	margin-top: 12px;
+	margin-bottom: 12px;
+	text-align: center;
+}
+
+.results-box {
+	margin: 0 auto;
+	text-align: left;
+	width: 400px;
+}
+
+
+#newurl-box {
+	padding: 8px 0px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#newurl {
+	font-size: 16pt;
+	font-weight: bold;
+	font-color: #2c2922;
+}
+
+.oldurl {
+	font-size: 11pt;
+	font-weight: bold;
+	font-color: #404040;
+}
+
+
+#copy {
+	font-size: 8pt;
+	color: silver;
+	text-align: right;
+	}
+
+a:link {text-decoration: none; color: #000;}
+a:visited {text-decoration: underline; color: #000;}
+a:hover {text-decoration: underline; color: #b38c17;}
+a:active {text-decoration: underline; color: #e6d9b0;}
+
+a.redirect:link {text-decoration: none; color: gray;}
+a.redirect:visited {text-decoration: underline; color: gray;}
+a.redirect:hover {text-decoration: underline; color: #b38c17;}
+a.redirect:active {text-decoration: underline; color: #e6d9b0;}
+
+
+
+
