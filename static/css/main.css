@@ -6,17 +6,6 @@ body {
 	color: black;
 }
 
-.thumb {
-	width:auto;
-	height:auto;
-	max-width:170px;
-	padding: 1px;
-	border: 1px solid #999999;
-	background-color: #FFF;	
-	margin:8px;
-	}
-
-
 p {
 	font-size: 10pt;
 }
@@ -66,7 +55,7 @@ input:-ms-input-placeholder {
 	
 #wrapper {
         margin: 0 auto;
-        width: 1000px;
+        width: 960px;
 }	
 
 #content {
@@ -88,7 +77,7 @@ input:-ms-input-placeholder {
 #shortener-form {
 		margin: 0 auto;
 		text-align: center;
-		width: 800px;
+		width: 400px;
 		padding: 12px;
 		border: 1px dotted #c0c0c0;
 		-moz-box-shadow: 4px 4px 2px #b0b0b0;
@@ -126,13 +115,19 @@ input:-ms-input-placeholder {
 	padding: 4px 0px;
 }
 
-.header {
+/*.header {
 	font-size: 20pt;	
 	padding: 4px 0px;
+}*/
+
+header {
+	font-size: 20pt;	
+	padding: 4px 0px;
+	text-align: center;
 }
 
 .subheader {
-	font-size: 14pt;	
+	font-size: 14pt;
 }
 
 .description {
@@ -156,7 +151,6 @@ input:-ms-input-placeholder {
 .results-box {
 	margin: 0 auto;
 	text-align: left;
-	width: 400px;
 }
 
 
@@ -196,5 +190,53 @@ a.redirect:hover {text-decoration: underline; color: #b38c17;}
 a.redirect:active {text-decoration: underline; color: #e6d9b0;}
 
 
+#left-column img, #right-column img {
+	max-width: 250px;
+	margin: 5px;	
+}
 
+@media (min-width: 1000px) {
+	#left-column, #right-column, #shortener-form {
+		float: left;
+	}
+}
+
+@media (max-width: 999px) {
+	#wrapper {
+		width: 100%;
+	}
+	#left-column, #shortener-form {
+		float: left;
+	}
+	#right-column {
+		display: none;
+	}
+}
+
+@media (max-width: 700px) {
+	#wrapper {
+		width: 100%;
+	}
+	#shortener-form {
+		float: center;
+		margin: 0 auto;
+	}
+	#right-column {
+		display: none;
+	}
+	#left-column {
+		display: none;
+	}
+	.subheader {
+		display: block;
+		clear: both;
+	}
+}
+
+@media (max-width: 400px) {
+	#shortener-form {
+		width: 100%;
+		padding: 0;		
+	}
+}
 
