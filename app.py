@@ -13,6 +13,7 @@ import Cookie
 import datetime
 import json
 import io
+import csv
 
 app = flask.Flask(__name__)
 app.debug = True
@@ -51,9 +52,11 @@ def index():
 	#Create datetime string
 	current_datetime = str(datetime.datetime.now())
 	# Create json object for this unique user, logging datetime, action, cookie_id, user_agent, and dump to log file
-	logline = json.dumps({'datetime': current_datetime, 'action': 'visit', 'cookie-id': my_cookie, 'user-agent': user_agent, 'myurl': '', 'myshort': ''}, sort_keys=True)
+	#logline = json.dumps({current_datetime, 'visit', my_cookie, user_agent,'',''}, sort_keys=True)
+	logline = ['visit', my_cookie, user_agent, current_datetime, '', '']
 	logfile = open('static/log.txt', 'a')
-	logfile.write(logline + ',')
+	wr = csv.writer(logfile)
+	wr.writerow(logline)
 	logfile.close()
 	
 	app.logger.debug(logline)
@@ -106,11 +109,12 @@ def create():
 	# Create datetime string
 	current_datetime = str(datetime.datetime.now())
 	# Create json object for this unique user, logging datetime, action, cookie_id, user_agent
-	logline = json.dumps({'datetime': current_datetime, 'action': 'create', 'cookie-id': my_cookie, 'user-agent': user_agent, 'myurl': myurl, 'myshort': myshort}, sort_keys=True)
-	logfile = open('static/log.txt', 'a')
-	logfile.write(logline + ',')
-	logfile.close()
 	
+	logline = ['create', my_cookie, user_agent, current_datetime, myurl, myshort]
+	logfile = open('static/log.txt', 'a')
+	wr = csv.writer(logfile)
+	wr.writerow(logline)	
+	logfile.close()
 	app.logger.debug(logline)	
 	
 	if myshort not in clicks.keys(): #this short word is not associated in the table yet
@@ -148,9 +152,10 @@ def redirect(short):
 		# Create datetime string
 		current_datetime = str(datetime.datetime.now())
 		# Create json object for this unique user, logging datetime, action, cookie_id, user_agent
-		logline = json.dumps({'datetime': current_datetime, 'action': 'redirect', 'cookie-id': my_cookie, 'user-agent': user_agent, 'myurl': destination, 'myshort': short}, sort_keys=True)
+		logline = ['redirect', my_cookie, user_agent, current_datetime, destination, short]
 		logfile = open('static/log.txt', 'a')
-		logfile.write(logline + ',')
+		wr = csv.writer(logfile)
+		wr.writerow(logline)
 		logfile.close()
 		app.logger.debug(logline)	
 		

@@ -1,0 +1,8 @@
+"http://theverge.com"	2
+"http://theverge/com"	2
+"http://verge.com"	2
+"http://www.yahoo.com"	2
+"http://google.com"	6
+"http://homestarrunner.com"	1
+"http://lakers.com"	2
+"http://nytimes.com"	4

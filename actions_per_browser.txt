@@ -1,0 +1,8 @@
+"redirect-firefox"	1
+"redirect-safari"	6
+"visit-chrome"	1
+"visit-safari"	1
+"create-chrome"	5
+"create-firefox"	1
+"create-safari"	3
+"redirect-chrome"	5

@@ -1,8 +1,11 @@
 """
-This script will tabulate the count of actions per browser that access our link shortener. The input file is the log file located at static/log.txt.
+This script will find the most followed urls from our link shortener. The input file is the log file located at static/log.txt.
 
 To run:
-browser_action.py static/log.txt > actions_per_browser.txt
+find_most_followed.py static/log.txt > most_followed_urls.txt
+
+To sort:
+Open most_followed_urls.txt in Excel, sort by second column, which is the count of redirects.
 
 """
 
@@ -24,11 +27,12 @@ class ActionCounter(MRJob):
 	def mapper(self, line_no, line):        
 		cell = csv_readline(line)
 		#app.logger.debug(cell[2])
-		yield cell[0]+"-"+cell[2], 1
+		yield cell[4], 1
 
-	def reducer(self, vroot, occurrences):
+	def reducer(self, vroot, occurrences):		
 		total = sum(occurrences)
-		yield vroot, total
+		if vroot != '':
+			yield vroot, total		
 
 if __name__ == '__main__':
     ActionCounter.run()
